@@ -42,9 +42,6 @@ libedit-devel epel-release libffi-devel svn \
 	    --disable chan_alsa \
         --disable chan_iax2 \
 		--disable chan_skinny \
-        --disable cdr_pgsql \
-        --disable cel_pgsql \
-        --disable res_config_pgsql \
         --disable cdr_csv \
         --disable cdr_sqlite3_custom \
 		--enable codec_g726 \
