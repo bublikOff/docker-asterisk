@@ -30,8 +30,6 @@ libedit-devel epel-release libffi-devel \
         --enable app_mysql \
         --enable CORE-SOUNDS-RU-WAV \
         --enable CORE-SOUNDS-RU-ULAW \
-        --enable EXTRA-SOUNDS-RU-WAV \
-        --enable EXTRA-SOUNDS-RU-ULAW \
         --enable G711_NEW_ALGORITHM \
         --enable G711_REDUCED_BRANCHING \
 		--disable chan_h323 \
