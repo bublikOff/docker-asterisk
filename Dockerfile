@@ -8,7 +8,7 @@ sqlite sqlite-devel openssl-devel newt-devel \
 kernel-devel libuuid-devel net-snmp-devel unixODBC \
 unixODBC-devel mysql-connector-odbc libtool-ltdl \
 libtool-ltdl-devel xinetd tar make git wget file \
-postgresql-odbc libuuid-devel \
+postgresql-devel postgresql-odbc libuuid-devel \
 lua lua-devel unzip readline-devel \
 mysql-devel curl-devel libedit-devel \
 libedit-devel epel-release libffi-devel svn \
