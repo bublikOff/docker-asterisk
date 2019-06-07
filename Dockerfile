@@ -10,8 +10,8 @@ unixODBC-devel mysql-connector-odbc libtool-ltdl \
 libtool-ltdl-devel xinetd tar make git wget file \
 postgresql-odbc libuuid-devel \
 lua lua-devel unzip readline-devel \
-postgresql-devel mysql-devel curl-devel lualibedit-devel \
-libedit-devel epel-release libffi-devel \
+mysql-devel curl-devel libedit-devel \
+libedit-devel epel-release libffi-devel svn \
     && yum install -y lame luarocks \
     && yum -y clean all \
     && rm -rf /var/cache/yum \
@@ -21,18 +21,23 @@ libedit-devel epel-release libffi-devel \
     && tar -xzvf /usr/src/asterisk-16-current.tar.gz --strip-components=1 -C /usr/src/asterisk \
     && mv /etc/localtime /etc/localtime.bak \
     && ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-    && cd /usr/src/asterisk \
+    && cd /usr/src/asterisk/contrib/scripts \
+	&& ./install_prereq install-unpackaged \
+	&& cd /usr/src/asterisk \
     && ./configure CFLAGS='-march=core2 -msse4.2 -msse4.1 -mpopcnt -O2 -pipe' --libdir=/usr/lib64 --with-jansson-bundled --with-pjproject-bundled \
     && make menuselect.makeopts \
     && menuselect/menuselect \
         --disable BUILD_NATIVE \
         --enable res_config_mysql \
         --enable app_mysql \
+        --enable CORE-SOUNDS-EN-WAV \
+        --enable CORE-SOUNDS-EN-ULAW \
+		--enable EXTRA-SOUNDS-EN-WAV \
+        --enable EXTRA-SOUNDS-EN-ULAW \
         --enable CORE-SOUNDS-RU-WAV \
         --enable CORE-SOUNDS-RU-ULAW \
         --enable G711_NEW_ALGORITHM \
         --enable G711_REDUCED_BRANCHING \
-		--disable chan_h323 \
         --disable chan_ooh323 \
 	    --disable chan_alsa \
         --disable chan_iax2 \
@@ -44,7 +49,6 @@ libedit-devel epel-release libffi-devel \
         --disable cdr_sqlite3_custom \
 		--enable codec_g726 \
 		--enable format_g726 \
-        --enable chan_local \
         --enable chan_sip \
         --enable res_snmp \
 		--enable res_srtp \
